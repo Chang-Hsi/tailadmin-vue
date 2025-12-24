@@ -82,7 +82,8 @@ const routes = [
 ];
 
 const router = createRouter({
-  history: createWebHistory(),
+  // ✅ 關鍵：一定要吃到 Vite 的 base（你 vite.config.js 的 base 會變成 BASE_URL）
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes,
   scrollBehavior() {
     return { top: 0 };
